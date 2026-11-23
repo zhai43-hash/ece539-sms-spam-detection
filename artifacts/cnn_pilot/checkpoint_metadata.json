@@ -1,0 +1,30 @@
+{
+  "checkpoint": "models/cnn_pilot/best_checkpoint.pt",
+  "checkpoint_sha256": "c60973f94c023528e719769c672a41b6f83937c60efe30247a4d882f9f79e7c0",
+  "vocabulary": "models/cnn_pilot/vocab.json",
+  "vocabulary_sha256": "0888c64020e6b9ddbc07e34600fa94800081a92c05757904e54efb405802649f",
+  "loader": "train_cnn.load_pilot_checkpoint() -> (model, vocabulary, metadata)",
+  "device": "cpu",
+  "model_mode_on_load": "eval",
+  "stored_keys": [
+    "state_dict",
+    "config",
+    "vocab_size",
+    "best_epoch",
+    "validation_loss"
+  ],
+  "optimizer_state_stored": false,
+  "best_epoch": 11,
+  "validation_loss": 0.07823038131879397,
+  "model_parameter_count": 211329,
+  "vocabulary_size_including_special_tokens": 3108,
+  "special_tokens": {
+    "<PAD>": 0,
+    "<UNK>": 1
+  },
+  "maximum_sequence_length": 128,
+  "prediction_rule": "sigmoid(logit) >= threshold; label 0=ham, 1=spam",
+  "fixed_threshold": 0.5,
+  "validation_selected_threshold": 0.35,
+  "script_sha256": "8c7e8b8a5441ea77afa76d752ee99af610bbe2d633f31c3e4ce2df2d6d378015"
+}

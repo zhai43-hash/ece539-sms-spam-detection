@@ -1,0 +1,7 @@
+{
+  "padded_positions_cannot_win_pooling": true,
+  "all_padding_pool_is_zero_and_logits_finite": true,
+  "adding_padding_preserves_prediction": true,
+  "vocabulary_fitted_only_on_supplied_training_rows": true,
+  "test_partition_rejected_before_file_access": true
+}
