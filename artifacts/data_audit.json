@@ -1,0 +1,116 @@
+{
+  "generated_utc": "2026-11-23T03:52:42.578637+00:00",
+  "dataset": {
+    "name": "UCI SMS Spam Collection",
+    "download_url": "https://archive.ics.uci.edu/static/public/228/sms%2Bspam%2Bcollection.zip",
+    "metadata_url": "https://archive.ics.uci.edu/dataset/228/sms+spam+collection",
+    "doi": "10.24432/C5CC84",
+    "license": "CC BY 4.0",
+    "catalog_instance_count": 5574,
+    "raw_files": {
+      "sms_spam_collection.zip": {
+        "sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3",
+        "bytes": 203415
+      },
+      "SMSSpamCollection": {
+        "sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+        "bytes": 477907
+      },
+      "readme": {
+        "sha256": "8753cd2d3cab68f80c8257851b8c2037778c267f55accb6fd1b5a2e32d36a84e",
+        "bytes": 5868
+      }
+    }
+  },
+  "parser": "UTF-8 strict; physical LF-delimited records; split at first TAB; ham/spam labels only; quotes literal",
+  "normalization": "Python str.lower(), then whitespace split/join with one ASCII space",
+  "deduplication": "Group by normalized text; collapse consistent-label groups; exclude ALL rows of conflicting-label groups",
+  "counts": {
+    "raw_physical_lines": 5574,
+    "raw_label_counts": {
+      "ham": 4827,
+      "spam": 747
+    },
+    "malformed_excluded": 0,
+    "empty_excluded": 0,
+    "valid_nonempty_rows": 5574,
+    "consistent_duplicate_groups": 290,
+    "consistent_duplicate_rows_removed": 415,
+    "conflicting_groups_excluded": 0,
+    "conflicting_rows_excluded": 0,
+    "clean_unique_rows": 5159,
+    "clean_label_counts": {
+      "ham": 4517,
+      "spam": 642
+    }
+  },
+  "excluded": {
+    "malformed_line_ids": [],
+    "empty_line_ids": [],
+    "conflicting_groups": []
+  },
+  "split_method": "Per-class SHA256-sorted rows, random.Random(str(seed)+':'+label).shuffle; largest-remainder allocation; ties train, validation, test; output SHA256-sorted",
+  "seed": 539,
+  "target_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "splits": {
+    "train": {
+      "count": 3612,
+      "label_counts": {
+        "ham": 3162,
+        "spam": 450
+      },
+      "fraction": 0.7001356852103121,
+      "sha256": "80c8775620ce07c84ea2f6280b471990ccf1780af0007603d0b6d39e7641951e",
+      "path": "data/processed/train.csv"
+    },
+    "validation": {
+      "count": 774,
+      "label_counts": {
+        "ham": 678,
+        "spam": 96
+      },
+      "fraction": 0.15002907540220972,
+      "sha256": "b0dbe64205742b2e3f189444264d59285acfda72356c8fe2712ac94e0d7311e8",
+      "path": "data/processed/validation.csv"
+    },
+    "test": {
+      "count": 773,
+      "label_counts": {
+        "ham": 677,
+        "spam": 96
+      },
+      "fraction": 0.1498352393874782,
+      "sha256": "79373dcf11d898b649081c77e22af405638c012109a5866320aff89f8cbe1959",
+      "path": "data/processed/test.csv"
+    }
+  },
+  "overlap_counts": {
+    "train_validation": {
+      "row_ids": 0,
+      "normalized_texts": 0
+    },
+    "train_test": {
+      "row_ids": 0,
+      "normalized_texts": 0
+    },
+    "validation_test": {
+      "row_ids": 0,
+      "normalized_texts": 0
+    }
+  },
+  "assertions_passed": [
+    "valid-row accounting",
+    "raw-row accounting",
+    "unique IDs and normalized texts",
+    "no pairwise split overlap",
+    "all clean IDs assigned exactly once"
+  ],
+  "test_policy": "Reserved. No test predictions, threshold tuning, model selection, or test performance metrics during progress phase.",
+  "environment": {
+    "python": "3.11.11"
+  }
+}

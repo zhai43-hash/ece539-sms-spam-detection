@@ -1,0 +1,19 @@
+{
+  "verified_utc": "2026-11-23T03:54:47.384903+00:00",
+  "passed": true,
+  "checks": [
+    "ZIP and extracted official corpus/readme match recorded SHA256 checksums",
+    "All partition file hashes and row-ID manifest counts match the initial audit",
+    "No shared row IDs between any pair of partitions",
+    "Shared model data interface rejects reserved test loading",
+    "Saved TF-IDF vocabulary and IDF exactly match a training-only refit",
+    "Reloaded saved model reproduces validation probabilities and all selected-threshold metrics"
+  ],
+  "test_status": "No test text parsed and no test predictions or performance metrics computed; byte-checksum bookkeeping only.",
+  "source_sha256": {
+    "src/data_interface.py": "ac46ae27b46d38177284a48fdec6ed1dc4c40fcd5279e466d7ab9134128cec0e",
+    "src/prepare_data.py": "f71cde714aa987b5d49e85cc0084c1ca3dbc11f48b637799c406d8539461e388",
+    "src/train_baseline.py": "bd9b368fb737bc4f44cde33b9875edd51110017153fca7854b21bc86b842a09c",
+    "src/verify_progress.py": "0035816e986c992d7c3ba3837fce6197416aba3ce1fd36694a1b936e0bd7624d"
+  }
+}

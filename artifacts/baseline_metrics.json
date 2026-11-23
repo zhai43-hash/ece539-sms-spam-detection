@@ -1,0 +1,95 @@
+{
+  "experiment": "initial TF-IDF + logistic regression baseline",
+  "started_utc": "2026-11-23T03:52:58.536269+00:00",
+  "finished_utc": "2026-11-23T03:53:01.127324+00:00",
+  "seed": 539,
+  "training_count": 3612,
+  "validation_count": 774,
+  "dataset_zip_sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3",
+  "training_csv_sha256": "80c8775620ce07c84ea2f6280b471990ccf1780af0007603d0b6d39e7641951e",
+  "validation_csv_sha256": "b0dbe64205742b2e3f189444264d59285acfda72356c8fe2712ac94e0d7311e8",
+  "model": {
+    "tfidf": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "max_features": 20000,
+      "min_df": 1,
+      "sublinear_tf": true,
+      "lowercase": false,
+      "norm": "l2",
+      "token_pattern": "(?u)\\b\\w\\w+\\b",
+      "fitted_vocabulary_size": 20000,
+      "fit_scope": "training messages only"
+    },
+    "logistic_regression": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "solver": "liblinear",
+      "max_iter": 2000,
+      "random_state": 539,
+      "iterations": [
+        5
+      ]
+    }
+  },
+  "threshold_selection": {
+    "partition": "validation",
+    "candidate_count": 777,
+    "candidate_rule": "all unique validation probabilities plus 0, 0.5, 1 and nextafter(max_probability,+infinity)",
+    "prediction_rule": "spam if probability >= threshold",
+    "objective": "maximum validation spam F1",
+    "tie_break": "lower ham false-positive rate, then higher threshold",
+    "selected_threshold": 0.518305307757728
+  },
+  "validation_selected_threshold": {
+    "threshold": 0.518305307757728,
+    "n": 774,
+    "spam_precision": 0.9468085106382979,
+    "spam_recall": 0.9270833333333334,
+    "spam_f1": 0.9368421052631579,
+    "accuracy": 0.9844961240310077,
+    "ham_false_positive_rate": 0.007374631268436578,
+    "confusion_matrix": {
+      "true_ham_pred_ham_tn": 673,
+      "true_ham_pred_spam_fp": 5,
+      "true_spam_pred_ham_fn": 7,
+      "true_spam_pred_spam_tp": 89
+    }
+  },
+  "validation_default_0_5": {
+    "threshold": 0.5,
+    "n": 774,
+    "spam_precision": 0.9175257731958762,
+    "spam_recall": 0.9270833333333334,
+    "spam_f1": 0.9222797927461139,
+    "accuracy": 0.9806201550387597,
+    "ham_false_positive_rate": 0.011799410029498525,
+    "confusion_matrix": {
+      "true_ham_pred_ham_tn": 670,
+      "true_ham_pred_spam_fp": 8,
+      "true_spam_pred_ham_fn": 7,
+      "true_spam_pred_spam_tp": 89
+    }
+  },
+  "test_status": "NOT EVALUATED. Model code never loads test.csv; no test predictions or numeric test metrics exist.",
+  "limitations": [
+    "Single data split and initial fixed hyperparameter configuration",
+    "Selected-threshold validation metrics also informed threshold choice, so they are optimistic development results",
+    "Historical SMS corpus may not represent current spam or deployment populations",
+    "No final generalization claim before the frozen protocol is evaluated once on held-out test"
+  ],
+  "artifacts": {
+    "model_path": "models/tfidf_logistic.joblib",
+    "model_sha256": "b571ed000c68c137a427358b35263f5eda68ae386224e8e76d710d8366b6557d",
+    "validation_predictions_path": "artifacts/baseline_validation_predictions.csv",
+    "validation_predictions_sha256": "abec1710e8f82cfc05f8f26147f471089d16faadd978f073772609b843515a8b"
+  },
+  "environment": {
+    "python": "3.11.11",
+    "numpy": "2.1.3",
+    "scikit_learn": "1.8.0",
+    "joblib": "1.4.2"
+  }
+}
