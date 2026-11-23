@@ -1,0 +1,14 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.ipynb text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv -text
+*.zip -text
+*.png -text
+*.pdf -text
+*.pt -text
+*.joblib -text
+data/** -text
+artifacts/** -text
+models/** -text
