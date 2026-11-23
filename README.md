@@ -1,5 +1,16 @@
 # ECE 539 SMS spam prototype — progress phase
 
+## Start here
+
+The complete pilot data, trained models, experiment results, and one-page progress report are stored in `pilot_artifacts.zip`. After cloning or downloading this repository, run these commands from the project directory with Python 3.11:
+
+```bash
+python -m pip install -r requirements.txt
+python restore_pilot.py
+```
+
+Then open `progress_notebook.ipynb` in a Jupyter client. Keep `RUN_TRAINING = False` to inspect the saved results. The restore script checks SHA-256 hashes and recreates `artifacts/`, `data/`, `models/`, and `report/`; it does not train models or evaluate the reserved test set. It restores the archived snapshot and replaces files at those paths. The PDF is restored to `report/ECE539_G22_Progress_Report.pdf`.
+
 This repository contains the November 22 preliminary experiments for the ECE 539 G22 project progress report. A data pipeline, TF-IDF/logistic baseline and word-level CNN pilot are implemented. This is not a completed final system, full experimental comparison or final test evaluation. Team assignments remain to be confirmed. The checkpoint was developed with AI assistance.
 
 ## Official data and provenance
